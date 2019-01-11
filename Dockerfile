@@ -1,9 +1,9 @@
-FROM debian:stretch-slim
+FROM ubuntu:cosmic
 
 LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
 
-ENV NGINX_VERSION 1.15.8-1~stretch
-ENV NJS_VERSION   1.15.8.0.2.7-1~stretch
+ENV NGINX_VERSION 1.15.8-1~cosmic
+ENV NJS_VERSION   1.15.8.0.2.7-1~cosmic
 
 RUN set -x \
 	&& apt-get update \
@@ -33,13 +33,13 @@ RUN set -x \
 	&& case "$dpkgArch" in \
 		amd64|i386) \
 # arches officialy built by upstream
-			echo "deb https://nginx.org/packages/mainline/debian/ stretch nginx" >> /etc/apt/sources.list.d/nginx.list \
+			echo "deb https://nginx.org/packages/mainline/ubuntu/ cosmic nginx" >> /etc/apt/sources.list.d/nginx.list \
 			&& apt-get update \
 			;; \
 		*) \
 # we're on an architecture upstream doesn't officially build for
 # let's build binaries from the published source packages
-			echo "deb-src https://nginx.org/packages/mainline/debian/ stretch nginx" >> /etc/apt/sources.list.d/nginx.list \
+			echo "deb-src https://nginx.org/packages/mainline/ubuntu/ cosmic nginx" >> /etc/apt/sources.list.d/nginx.list \
 			\
 # new directory for storing sources and .deb files
 			&& tempDir="$(mktemp -d)" \

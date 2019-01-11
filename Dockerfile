@@ -1,6 +1,6 @@
 FROM ubuntu:cosmic
 
-LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
+LABEL maintainer="https://github.com/contribu"
 
 ENV NGINX_VERSION 1.15.8-1~cosmic
 ENV NJS_VERSION   1.15.8.0.2.7-1~cosmic
